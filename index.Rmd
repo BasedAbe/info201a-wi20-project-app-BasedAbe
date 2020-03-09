@@ -1,0 +1,206 @@
+---
+<<<<<<< HEAD
+title: "Property Crime Rates: Seattle vs. Chicago"
+=======
+<<<<<<< HEAD
+title: "THEFT"
+=======
+title: "Property Crime Rates: Seattle vs. Chicago"
+>>>>>>> f0c9230847ee11384b34e0981c2014e7c1f36686
+>>>>>>> d50d1c7ae5c883dd69a0d39c48860dfe0ef43165
+output: html_document
+---
+
+```{r setup, include = FALSE}
+<<<<<<< HEAD
+source("analysis.R")
+library("knitr")
+=======
+<<<<<<< HEAD
+knitr::opts_chunk$set(echo = TRUE)
+library("knitr")
+source("analysis.R")
+
+=======
+source("sea_vs_chi_crime_rates.R")
+library("knitr")
+>>>>>>> f0c9230847ee11384b34e0981c2014e7c1f36686
+>>>>>>> d50d1c7ae5c883dd69a0d39c48860dfe0ef43165
+```
+
+## 1.Problem Domain Description
+
+Seattle, Washington and Chicago, Illinois are some of the most popular destinations for those looking to relocate or for those just looking for a vacation destination. Unfortunately, both cities have faced challenges in being able to mitigate the high rates of property crime plaguing each respective city. According to FindLaw, property crimes are defined as crimes “relating to theft or destruction of someone else’s property”. A few examples of property crimes include (but are not limited to) theft, burglary, robbery, and arson. For the sake of being concise we will focus our dataset on the property crimes mentioned above and we will be analyzing the years of 2018-2019 with one question including data from 2008-2009 as well. We collected our data sets on crime from the [City of Seattle Open Data Portal](https://data.seattle.gov/Public-Safety/Crime-Data/4fs7-3vj5/data) and [City of Chicago Data Portal](https://data.cityofchicago.org/Public-Safety/Crimes-2001-to-present/ijzp-q8t2/data). Are datasets will allow those who live in or intend on frequenting either city to foster a better understanding of the current state of property crime in each city and will allow them to analyze how each city has attempted to curb the high rates affecting the city over time. 
+
+### 1.1 Analysis Questions
+
+_Which city has been able to reduce the number of robberies committed in the time period of our dataset?_
+
+This question is significant because it allows us to gauge which city has taken the proper steps to reduce the amount of robberies occurring in each city in a 10-year time span.  The datasets will allow us to answer our question by giving us clear indication of  which city has been successful in reducing robberies. 
+  
+<<<<<<< HEAD
+_What locations have the highest chance of a crime occuring?_
+
+_What neighborhoods are the most frequent for each property crime to be commited in Seattle?_
+
+Our team wanted to determine what particular property crime might be most popular in a given neighborhood. We found this question to be important as residents of a particular neighborhood want to be aware of what issues are in their community so that the specific crime (ie theft) can be guarded against and proactively managed. 
+
+_During what hour do most bank robberies occur in each city? Is that time consistent with the national average (6pm - 6am)?_
+
+_What quarter of the year sees the most crime in Seattle? (Quarters: Jan-Mar, Apr-Jun, Jul-Sep, Oct-Dec)_
+This question is significant because it allows us to view which quarter of the year in Seattle is most prone to crime. January through March represents the winter, April through June represents the spring, July through September represents the summer,and October through December represents the fall. By comparing the data from each quarter, we are able to determine when property theft crime is most likely to occur and we can draw conclusions from the trends from each season as well. 
+=======
+<<<<<<< HEAD
+_What locations have the highest chance of a crime occuring in Chicago?_
+
+This Question is beneficial to others because it provides insight to other
+individuals, families, and businesses of the type of crimes in Chicago to be aware of. Chicago being one of the most violent cities in the US, theft remains to be the leading factor among gun violence. 
+
+=======
+_What locations have the highest chance of a crime occuring?_
+>>>>>>> f0c9230847ee11384b34e0981c2014e7c1f36686
+
+This question is beneficial to others because it provides insight to other
+individuals, families, and businesses of the type of crimes in which to be aware of.
+
+_What neighborhoods are the most frequent for each property crime to be commited in Seattle?_
+
+Our team wanted to determine what particular property crime might be most popular in a given neighborhood. We found this question to be important as residents of a particular neighborhood want to be aware of what issues are in their community so that the specific crime (ie theft) can be guarded against and proactively managed. 
+
+_During what hour do most bank robberies occur in each city? Is that time consistent with the national average (6pm - 6am)?_
+
+<<<<<<< HEAD
+_What date saw the most crimes that happened in Chicago (and Seattle): use weekdays() function for example: weekdays(as.Date("2020-01-30"))._
+=======
+_What quarter of the year sees the most crime in Seattle? (Quarters: Jan-Mar, Apr-Jun, Jul-Sep, Oct-Dec)_
+This question is significant because it allows us to view which quarter of the year in Seattle is most prone to crime. January through March represents the winter, April through June represents the spring, July through September represents the summer,and October through December represents the fall. By comparing the data from each quarter, we are able to determine when property theft crime is most likely to occur and we can draw conclusions from the trends from each season as well. 
+>>>>>>> f0c9230847ee11384b34e0981c2014e7c1f36686
+>>>>>>> d50d1c7ae5c883dd69a0d39c48860dfe0ef43165
+
+
+## 2. Data Description
+
+The dataset that we will be using has been collected from the [City of Seattle Open Data Portal](https://data.seattle.gov/Public-Safety/Crime-Data/4fs7-3vj5/data) and [City of Chicago Data Portal](https://data.cityofchicago.org/Public-Safety/Crimes-2001-to-present/ijzp-q8t2/data), the datasets contain the crime incidents that occured in each city from 2018-2019.
+
+- Primary.Type column contains the category of the crime committed
+- Description column contains a short explanation of the crime committed
+- Precinct column contains the district in which the crime was committed
+- IUCR stands for Illinois Uniform Crime Reporting and is the code for the crime committed
+
+**Seattle Raw Data**
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+
+
+**Chicago Raw Data**
+
+
+### 2.2 Summary Analysis
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## 3. Specific Question Analyses
+
+### _Which city has been able to reduce the number of robberies committed in a 10 year time frame 2008-2009 & 2018-2019?_
+
+### _What locations have the highest chance of a crime occuring in Chicago?_
+As Chicago is known for their crimes, we focused on crime that involved theft of personal property. As you may assume there are areas in Chicago in which are less likely to involve theft. However, in order to prove this I needed to see how often locations that involved in theft also had other reports of theft, therefore I did this by filtering for only acts that involved theft and summarized it by the count in order to determine the number of times thefts occur in reported areas. We then took the results in order to find the top 5 locations in Chicago where robberies are most likely to occur.
+
+```{r Theft Table, echo = FALSE}
+
+map_5_most_crime
+
+```
+
+
+Given the graph, the top 5 locations in Chicago that have the highest chance of theft, happens to be near their downtown. In between Randolph and Monroe street centered in downtown there appears to be 3 of the top locations of where thefts have occured. However, not to far away ( to the North downtown and Westward of downtown) there are two locations in which theft often occurs in these areas. 
+
+### During what hour do most bank robberies occur in each city? Is that time consistent with the national average (6pm - 6am)?? 
+
+### What date saw the most crimes that happened in Chicago (and Seattle): use weekdays() function for example:             weekdays(as.Date("2020-01-30")).
+=======
+>>>>>>> d50d1c7ae5c883dd69a0d39c48860dfe0ef43165
+```{r Seattle Summary Table, echo = FALSE}
+kable(sea_summary)
+```
+
+**Chicago Raw Data**
+```{r Chicago Summary Table, echo = FALSE}
+kable(chi_summary)
+```
+
+### 2.2 Summary Analysis
+
+<<<<<<< HEAD
+#### Chicago Summary Analysis
+```{r Chicago Summary Analysis, echo = FALSE}
+kable(chicago_summary_analysis)
+```
+
+#### Seattle Summary Analysis
+```{r Seattle Summary Analysis, echo = FALSE}
+kable(seattle_summary_analysis)
+```
+
+=======
+>>>>>>> d50d1c7ae5c883dd69a0d39c48860dfe0ef43165
+## 3. Specific Question Analyses
+
+### _Which city has been able to reduce the number of robberies committed in a 10 year time frame 2008-2009 & 2018-2019?_
+Robbery is a form of property crime and there are many different types of robberies. Robbery is defined as taking something from a victim’s person where that person uses or threatens to use, force or violence.  We filtered for then combined the different forms of robbery in our data set to summarize the number of robberies in each city in 2008-2009 and 2018-2019. We then took those results and compared them to find out which city was able to reduce the number of robberies after ten years.
+
+```{r Analysis Table, echo = FALSE}
+kable(robbery_results)
+graph_of_change_in_robberies
+```
+
+<<<<<<< HEAD
+It is quite evident from the results that there was a drastic decrease in the number of robberies in Chicago from 2008-2009 to 2018-2019. Chicago went from having **16,714** robberies in 2008-2009 to only **9,439** in 2018-2019, compared to Seattle which seen an increase in the number of robberies going from **1,586** in 2008-2009 to **2,214** in 2018-2019. As a result, Seattle seen the number of robberies increase by **+628** while Chicago was able to reduce the number of robberies by a staggering margin with **-7,275** less robberies in 2018-2019 than 10 years prior. A possible explanation for the large margin could be that there were 96,043 total entries for the 2018-2019 Chicago dataset compared to 149,652 entries for the 2008-2009 dataset. That may be due to a reduction in Chicago crime or it may be related to less entries being put in the system for another unknown reason. 
+=======
+It is quite evident from the results that there was a drastic decrease in the number of robberies in Chicago from 2008-2009 to 2018-2019. Chicago went from having **16,714** robberies in 2008-2009 to only **9,439** in 2018-2019, compared to Seattle which seen an increase in the number of robberies going from **1,586** in 2008-2009 to **1,691** in 2018-2019. As a result, Seattle seen the number of robberies increase by **+105** while Chicago was able to reduce the number of robberies by a staggering margin with **-7,275** less robberies in 2018-2019 than 10 years prior. A possible explanation for the large margin could be that there were 96,043 total entries for the 2018-2019 Chicago dataset compared to 149,652 entries for the 2008-2009 dataset. That may be due to a reduction in Chicago crime or it may be related to less entries being put in the system for another unknown reason. 
+>>>>>>> d50d1c7ae5c883dd69a0d39c48860dfe0ef43165
+
+<<<<<<< HEAD
+### How do the frequencies of theft in each city compare? 
+
+### How does the average time of theft (robbery, arson, burglary) compare between the cities, i.e. what is the safest time to be out? 
+
+<<<<<<< HEAD
+### What neighborhoods are the most frequent for each property crime to be commited in Seattle?
+When referring "Property Crimes" the scope of this analysis refers to the four crims of arson, burglary, robbery, and theft. The neighborhoods are given in the Seattle.gov dataset. These neighborhood names reflect the names citizens refer to them such as "International District" or "Ravenna". My methods began with renaming the names in the "Crime.Subcategory" column to the main crime because there was a wide range of names. Then, I took a data frame by grouping the Seattle crime data by crime and neighborhood. After arranging the data frame by greatest quantity of crimes, I made four seperate data frames of the top ten neighborhoods for each of the four main property crimes.
+
+```{r plots, echo = FALSE}
+most_crime_df
+arson_plot
+robbery_plot
+burglary_plot
+theft_plot
+```
+The Seattle dataset divdied Seattle into 59 total neighborhoods, all of which range in population and size. The average amount of property crime for each Seattle neighborhood was **163.8** crimes while the median was only **55** for all of the neighborhoods. This difference between the median and mean suggusts some neighborhoods in Seattle have lots of crime while other neighborhoods have relatively much less propety crime. The Downtown Neighborhood had the highest amount of occurances for both theft and robbery. As commerical neighborhoods are often areas of crime, this data confirmed intution. However, the fact the South Lake Union had the highest amount of arson wasn't expected. Presentely South Lake Union is synomous with Amazon and other tech companies. SLU had 11 instances of Arson while the median and mean for Seattle was **2** and **2.9**, respectively. This may be due to the fact that SLU was previously an industrial neighborhood and its rapid contruction leaves the area vulnerable to fires.
+
+### During what hour do most bank robberies occur in each city? Is that time consistent with the national average (6pm - 6am)?? 
+
+### What date saw the most crimes that happened in Chicago (and Seattle): use weekdays() function for example:             weekdays(as.Date("2020-01-30")).
+=======
+### What locations have the highest chance of a crime occuring?
+
+### During what hour do most bank robberies occur in each city? Is that time consistent with the national average (6pm - 6am)?? 
+
+
+>>>>>>> f0c9230847ee11384b34e0981c2014e7c1f36686
+>>>>>>> d50d1c7ae5c883dd69a0d39c48860dfe0ef43165
+=======
+
+>>>>>>> Abel_code
