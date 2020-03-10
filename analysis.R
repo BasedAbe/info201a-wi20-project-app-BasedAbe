@@ -12,7 +12,7 @@ seattle_2008 <- read.csv("data/Crime_Seattle_2008_2009.csv", stringsAsFactors = 
 
 #############################################################################################33
 
-seattle_renamed_columns <- seattle      # Creating new df and renaming columns for Summary table
+seattle_renamed_columns <- seattle_full      # Creating new df and renaming columns for Summary table
 colnames(seattle_renamed_columns)[colnames(seattle_renamed_columns) == "Crime.Subcategory"] <- "Primary.Type"
 colnames(seattle_renamed_columns)[colnames(seattle_renamed_columns) == "Primary.Offense.Description"] <- "Description"
 colnames(seattle_renamed_columns)[colnames(seattle_renamed_columns) == "Neighborhood"] <- "Location.Description"
