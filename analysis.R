@@ -21,6 +21,12 @@ colnames(seattle_renamed_columns)[colnames(seattle_renamed_columns) == "Occurred
 colnames(seattle_rates)[colnames(seattle_rates) == "ï..Year"] <- "Year"
 
 seattle_rates <- seattle_rates[1:5]
+numeric_analysis <- summary(seattle_rates)
+top_5 <- seattle_rates %>% 
+  select(1:5) %>% 
+  head(6)
+
+features <- colnames(seattle_rates)
 
 
 sea_summary <- seattle_renamed_columns %>%        # Creating summary tables with head of table
@@ -66,6 +72,8 @@ seattle_summary_analysis <- seattle_2008 %>%
 chi_percent_change <- paste0(round((chi_robbery / chi_robbery_2008) * 100), "%")
 sea_percent_change <- paste0(round((sea_robbery /sea_robbery_2008) * 100), "%")
 
+change_in_chi_robberies <- chi_robbery - chi_robbery_2008 # Chicago had -7275 robberies in 2018-19 than in 2008-09
+change_in_sea_robberies <- sea_robbery - sea_robbery_2008 # Seattle had 105 more robberies in 2018-19 than in 2008-09
 
 robbery_results <- data.frame("City" = c("Seattle", "Chicago"),
                               "Robberies_in_08_09" = c(sea_robbery_2008, chi_robbery_2008),
@@ -83,6 +91,5 @@ graph_of_change_in_robberies <- ggplot(data = robbery_results) +
        x = "City",
        y = "Change in Robberies")
 
-change_in_chi_robberies <- chi_robbery - chi_robbery_2008 # Chicago had -7275 robberies in 2018-19 than in 2008-09
-change_in_sea_robberies <- sea_robbery - sea_robbery_2008 # Seattle had 105 more robberies in 2018-19 than in 2008-09
+
 

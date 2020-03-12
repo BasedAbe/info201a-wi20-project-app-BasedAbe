@@ -1,6 +1,7 @@
 library("shiny")
 library("ggplot2")
 library("dplyr")
+library("DT")
 
 source("analysis.R")
 source("my_ui.R")
@@ -15,5 +16,4 @@ my_ui <- navbarPage(
  
 )
 
-  
 shinyApp(ui = my_ui, server = my_server)

@@ -1,32 +1,12 @@
 source("analysis.R")
 
-feature_input <- selectInput(
-  inputId = "feature_choice", 
-  label = "Feature of Interest",
-  choices = features,
-  selected = "City"
-)
-
-price_input <- sliderInput(
-  inputId = "price_choice", label = "Price (in dollars)",
-  min = price_range[1],
-  max = price_range[2],
-  value = price_range
-)
-
-features <- colnames(seattle_rates)
-
-price_range <- range(robbery_results$Change_in_Robberies)
-
-price_range
-
-
-robbery_visual <- tabPanel(
-  "Robbery Crime Rate Comparison",
+robbery_visual <- tabPanel(                              # Creates Robbery Comparsion Tab
+  "Robbery Crime Rate Comparison",                          # Creates sidepanel
   sidebarLayout(
     sidebarPanel(
-      textInput(inputId = "question", label = "Which city lowered the total number of robberies the most, Seattle or Chicago?"),
-      textOutput(outputId = "message")
+      textInput(inputId = "question", label = "Which city lowered the total number of robberies   # Create Question
+                the most, Seattle or Chicago?"), 
+      textOutput(outputId = "message")                                                            # Response to question above
     ),
     
     mainPanel(
@@ -37,8 +17,8 @@ robbery_visual <- tabPanel(
          our question by giving us clear indication of  which city has been successful in reducing robberies."),
     )
   ),
-  plotOutput(outputId = "my_plot"),
-  tableOutput(outputId = "table_data"),
+  plotOutput(outputId = "my_plot"),        # Render Plot
+  tableOutput(outputId = "table_data"),    # Render Table
   h3("Analysis"),
   p("It is quite evident from the results that there was a drastic decrease in the number of robberies in Chicago from 2008-2009 to 2018-2019. 
     Chicago went from having", strong("16,714"),"robberies in 2008-2009 to only", strong("9,439"), "in 2018-2019, compared to Seattle which seen an increase in 
@@ -49,9 +29,6 @@ robbery_visual <- tabPanel(
     another unknown reason"),
   
 )
-
-
-
 
 home_page <- tabPanel(
   "Home",
@@ -76,25 +53,33 @@ home_page <- tabPanel(
     the city over time."),
   
   h3("GitHub Page"),
-  p("If you are intereseted in learning more about the topic you can visit this", a("GitHub Page.", href = "https://info201a-wi20.github.io/Final_Project_Report_Team_Infomaniacs/"),
+  p("If you are interested in learning more about the topic you can visit this", a("GitHub Page.", href = "https://info201a-wi20.github.io/Final_Project_Report_Team_Infomaniacs/"),
     "The GitHub page allows you to  see more details about the data and learn more about the report."),
+  h3("How to Use This Shiny App"),
+  p("You can navigate to the various pages by pressing on the tabs that are located near the top of the page. From there you can
+    select the Seattle Property Crime Rates page which is the page that allows for the most interactive analysis. On that page you 
+    can click on the trendline widget box to display a trendline on the visualization below. Above that trendline widget, there is 
+    widget that allows you to select a property crime to display on the plot. From there you can develop your own insights on the 
+    changes in property crime. If you select the robbery crime rate comparison tab you will be taken to a page where you can guess
+    which city reduced the number of robberies in 10-year time frame. After guessing you can scroll below to see a visual and table
+    that helps you understand which city was able to reduce the rates of robbery"),
   h4("Author: Abel Kassa")
 )
 
-feature_input <- selectInput(
-  inputId = "feature_choice", 
+feature_input <- selectInput(           # Creating feature widget for interactive page
+  inputId = "feature_choice",       
   label = "Property Crime of Interest",
   choices = features,
   selected = "Robbery.Rates"
 )
 
-trendline_input <- checkboxInput(
+trendline_input <- checkboxInput(       # Widget to display trendline on plot when selected
   inputId = "show_trend",
   label = "Show Trendline",
   value = TRUE
 )
 
-interactive_page <- tabPanel(
+interactive_page <- tabPanel(         # Creates Seattle Property Crime Tab
   "Seattle Property Crime Rates",
   mainPanel(
     h3("Data Science Question"),
@@ -103,12 +88,15 @@ interactive_page <- tabPanel(
     p("This question is significant because it allows us to visualize the changes in Seattle's property crime
       rates from the years 1995-2015. This will give us a better understanding of how the city has attempted to
       reduce its property crime rates in a 20-year period."),
-    feature_input,
-    trendline_input,
-    plotOutput(outputId = "sea_plot"),
-    h3("Analysis"),
-    p("It is quite evident from the results that the rates of robbery has risen in Seattle since 1995 because "),
-    
-    
+    feature_input,                     # Using widgets
+    trendline_input,                   # Using widget
+    plotOutput(outputId = "sea_plot"),         # Render plot
+    tableOutput(outputId = "num_analysis"),    # Render Table
+    h3("Interactive Analysis"),
+    p("It's slightly difficult to tell the changes at first glance but if you click on the trendline widget the property crime changes 
+    become evident. For example, the robbery rates in Seattle have clearly grown when visualized with the trendline. Compare that to when you 
+    look at theft rates which appear to have an obvious decline when visualized with the trendline. The rates of arson appear to be relatively
+    steady while when looking at the burglary rates it appears to be a slight dip in the rate around the early 2000's. It appears that in
+    Seattle property crime has risen across the board with the only exception being the theft rates which appears to have reduced slightly."),
   )
 )
