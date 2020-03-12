@@ -1,31 +1,69 @@
+source("analysis.R")
+
+feature_input <- selectInput(
+  inputId = "feature_choice", 
+  label = "Feature of Interest",
+  choices = features,
+  selected = "City"
+)
+
+price_input <- sliderInput(
+  inputId = "price_choice", label = "Price (in dollars)",
+  min = price_range[1],
+  max = price_range[2],
+  value = price_range
+)
+
+features <- colnames(seattle_rates)
+
+price_range <- range(robbery_results$Change_in_Robberies)
+
+price_range
+
+
 robbery_visual <- tabPanel(
-  "Robbery Results",
-  h2("Data Science Question"),
-  h3("1. Which city has been able to reduce the number of robberies committed in the time period of our dataset?"),
-  p("This question is significant because it allows us to gauge which city has taken the proper steps to reduce 
-    the amount of robberies occurring in each city in a 10-year time span.  The datasets will allow us to answer 
-    our question by giving us clear indication of  which city has been successful in reducing robberies."),
-  
-  h3("Specific Question Description & Analysis Method"),
-  p("Robbery is a form of property crime and there are many different types of robberies. Robbery is defined as taking 
-    something from a victim's person where that person uses or threatens to use, force or violence.  We filtered for then 
-    combined the different forms of robbery in our data set to summarize the number of robberies in each city in 2008-2009 and 2018-2019. 
-    We then took those results and compared them to find out which city was able to reduce the number of robberies after ten years."),
-  plotOutput(outputId = "graph_of_change_in_robberies"),
-  
+  "Robbery Crime Rate Comparison",
+  sidebarLayout(
+    sidebarPanel(
+      textInput(inputId = "question", label = "Which city lowered the total number of robberies the most, Seattle or Chicago?"),
+      textOutput(outputId = "message")
+    ),
+    
+    mainPanel(
+      h3("Data Science Question"),
+      h4("2. Which city has been able to reduce the number of robberies committed in the time period of our dataset?"),
+      p("This question is significant because it allows us to gauge which city has taken the proper steps to reduce 
+         the amount of robberies occurring in each city in a 10-year time span.  The datasets will allow us to answer 
+         our question by giving us clear indication of  which city has been successful in reducing robberies."),
+    )
+  ),
+  plotOutput(outputId = "my_plot"),
+  tableOutput(outputId = "table_data"),
+  h3("Analysis"),
+  p("It is quite evident from the results that there was a drastic decrease in the number of robberies in Chicago from 2008-2009 to 2018-2019. 
+    Chicago went from having", strong("16,714"),"robberies in 2008-2009 to only", strong("9,439"), "in 2018-2019, compared to Seattle which seen an increase in 
+    the number of robberies going from", strong("1,586"), "in 2008-2009 to", strong("2,214"), "in 2018-2019. As a result, Seattle seen the number of robberies increase 
+    by", strong("+628"), "while Chicago was able to reduce the number of robberies by a staggering margin with", strong("-7,275"), "less robberies in 2018-2019 than 10 years 
+    prior. A possible explanation for the large margin could be that there were 96,043 total entries for the 2018-2019 Chicago dataset compared to 149,652 
+    entries for the 2008-2009 dataset. That may be due to a reduction in Chicago crime or it may be related to less entries being put in the system for 
+    another unknown reason"),
   
 )
+
+
+
 
 home_page <- tabPanel(
   "Home",
   titlePanel("Property Crime Rates: Seattle Vs. Chicago"),
   h2("Data Introduction"),
-  h3("Problem Domain and Data Description"),
+  h3("Problem Domain"),
   p("Seattle, Washington and Chicago, Illinois are some of the most popular destinations for those looking to relocate or for those just 
     looking for a vacation destination. Unfortunately, both cities have faced challenges in being able to mitigate the high rates of property 
     crime plaguing each respective city. According to FindLaw, property crimes are defined as crimes relating to theft or destruction of 
-    someone else's property. A few examples of property crimes include (but are not limited to) theft, burglary, robbery, and arson. 
-    For the sake of being concise we will focus our dataset on the property crimes mentioned above and we will be 
+    someone else's property. A few examples of property crimes include (but are not limited to) theft, burglary, robbery, and arson."), 
+  h3("Data Description"),
+    p("For the sake of being concise we will focus our dataset on the property crimes mentioned above and we will be 
     analyzing the years of 2018-2019 with one question including data from 2008-2009 as well. We collected our data 
     sets on crime from the", 
     
@@ -41,5 +79,36 @@ home_page <- tabPanel(
   p("If you are intereseted in learning more about the topic you can visit this", a("GitHub Page.", href = "https://info201a-wi20.github.io/Final_Project_Report_Team_Infomaniacs/"),
     "The GitHub page allows you to  see more details about the data and learn more about the report."),
   h4("Author: Abel Kassa")
-  
+)
+
+feature_input <- selectInput(
+  inputId = "feature_choice", 
+  label = "Property Crime of Interest",
+  choices = features,
+  selected = "Robbery.Rates"
+)
+
+trendline_input <- checkboxInput(
+  inputId = "show_trend",
+  label = "Show Trendline",
+  value = TRUE
+)
+
+interactive_page <- tabPanel(
+  "Seattle Property Crime Rates",
+  mainPanel(
+    h3("Data Science Question"),
+    h4("1. Which property crimes has Seattle been able to reduce and which property crimes has Seattle seen
+       a rise in?"),
+    p("This question is significant because it allows us to visualize the changes in Seattle's property crime
+      rates from the years 1995-2015. This will give us a better understanding of how the city has attempted to
+      reduce its property crime rates in a 20-year period."),
+    feature_input,
+    trendline_input,
+    plotOutput(outputId = "sea_plot"),
+    h3("Analysis"),
+    p("It is quite evident from the results that the rates of robbery has risen in Seattle since 1995 because "),
+    
+    
+  )
 )
