@@ -1,7 +1,5 @@
 library("shiny")
-library("ggplot2")
-library("dplyr")
-library("DT")
+
 
 source("analysis.R")
 source("my_ui.R")

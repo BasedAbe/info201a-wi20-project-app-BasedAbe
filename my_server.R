@@ -25,9 +25,4 @@ my_server <- function(input, output){
   
   })
   output$num_analysis <- renderTable(top_5)
-  
-  
-
-  
-  
 }

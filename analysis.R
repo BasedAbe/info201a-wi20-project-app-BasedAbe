@@ -2,6 +2,7 @@ library(dplyr)
 library(tidyr)
 library(ggplot2)
 
+
 # Data for Robberies including Full dataset
 
 seattle_full <- read.csv("data/Crime_Seattle_Data.csv", stringsAsFactors = FALSE)
@@ -18,9 +19,8 @@ colnames(seattle_renamed_columns)[colnames(seattle_renamed_columns) == "Crime.Su
 colnames(seattle_renamed_columns)[colnames(seattle_renamed_columns) == "Primary.Offense.Description"] <- "Description"
 colnames(seattle_renamed_columns)[colnames(seattle_renamed_columns) == "Neighborhood"] <- "Location.Description"
 colnames(seattle_renamed_columns)[colnames(seattle_renamed_columns) == "Occurred.Date"] <- "Date"
-colnames(seattle_rates)[colnames(seattle_rates) == "ï..Year"] <- "Year"
 
-seattle_rates <- seattle_rates[1:5]
+seattle_rates <- seattle_rates[2:6]
 numeric_analysis <- summary(seattle_rates)
 top_5 <- seattle_rates %>% 
   select(1:5) %>% 

@@ -1,32 +1,14 @@
 ---
-<<<<<<< HEAD
 title: "Property Crime Rates: Seattle vs. Chicago"
-=======
-<<<<<<< HEAD
-title: "THEFT"
-=======
-title: "Property Crime Rates: Seattle vs. Chicago"
->>>>>>> f0c9230847ee11384b34e0981c2014e7c1f36686
->>>>>>> d50d1c7ae5c883dd69a0d39c48860dfe0ef43165
 output: html_document
 ---
 
 ```{r setup, include = FALSE}
-<<<<<<< HEAD
-source("analysis.R")
-library("knitr")
-=======
-<<<<<<< HEAD
-knitr::opts_chunk$set(echo = TRUE)
-library("knitr")
-source("analysis.R")
 
-=======
-source("sea_vs_chi_crime_rates.R")
+source("analysis.R")
 library("knitr")
->>>>>>> f0c9230847ee11384b34e0981c2014e7c1f36686
->>>>>>> d50d1c7ae5c883dd69a0d39c48860dfe0ef43165
 ```
+
 
 ## 1.Problem Domain Description
 
